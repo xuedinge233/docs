@@ -22,5 +22,5 @@ When the development is ready, you can check and test it locally by following th
 2. Building:  
    `make html`
 
-3. Server on localhost:  
-   `python -m http.server -d build/html 4000`
+3. Server on localhost on port 4000:  
+   `python -m http.server -d _build/html 4000`
