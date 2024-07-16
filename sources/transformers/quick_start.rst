@@ -7,11 +7,11 @@
 
 
 本文以Meta-Llama-3-8B-Instruct模型为例，介绍如何通过transformers使用模型进行推理，
-针对模型推理transformers提供了 AutoModelForCausalLM_，pipeline_ 两种方式，下面将介绍这两种接口的使用
+针对模型推理transformers提供了 AutoModelForCausalLM_，pipeline_ 两种方式，下面将说明这两种接口的使用方式。
 
 .. note::
 
-以下模型用到了Meta-Llama-3-8B-Instruct， 具体可以参考 `模型获取 <./modeldownload.html>`_
+以下模型用到了Meta-Llama-3-8B-Instruct， 具体可以参考 `模型获取 <./modeldownload.html>`_。
 
 AutoModelForCausalLM
 -----------------------------------------------
@@ -61,7 +61,7 @@ pipeline
 .. code-block:: python
     :linenos:
 
-    from transformers import AutoTokenizer, AutoModelForCausalLM
+    from transformers import AutoModelForCausalLM, AutoTokenizer
     import torch
     import torch_npu 
 
@@ -113,7 +113,7 @@ pipeline
     response = outputs[0][input_ids.shape[-1]:]
     print(tokenizer.decode(response, skip_special_tokens=True))
 
-输出示例
+输出示例：
 
 .. code-block:: shell
     :linenos:

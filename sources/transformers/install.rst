@@ -1,7 +1,7 @@
 安装指南
 ===========
 
-本文将介绍如何在昇腾环境下使用transfomers，帮助开发者完成transformers的安装
+本文将介绍如何在昇腾环境下使用transfomers，帮助开发者完成transformers的安装。
 
 .. note:: 
 
@@ -10,34 +10,38 @@
 创建虚拟环境
 --------------------
 
-首先需要安装并激活python环境
+首先需要安装并激活python环境：
 
 .. code-block:: shell
 
     conda create -n your_env_name python=3.10
     conda activate your_env_name
 
-同时安装必要库
+同时安装依赖库：
 
 .. code-block:: shell
 
-    pip install torch torch_npu
+    # install torch
+    pip3 install -i https://pypi.tuna.tsinghua.edu.cn/simple torch==2.2.0
+
+    # install torch-npu
+    pip3 install -i https://pypi.tuna.tsinghua.edu.cn/simple torch-npu==2.2.0
 
 安装transformers
 ----------------------
 
-直接使用pip命令进行安装
+直接使用pip命令进行安装：
 
 .. code-block:: shell
 
-    pip install transformers
+    pip install -i https://pypi.tuna.tsinghua.edu.cn/simple transformers
 
 验证安装
 --------------------
 
 .. code-block:: python 
 
-    from transformers import AutoTokenizer, AutoModelForSequenceClassification, pipeline
+    from transformers import AutoModelForSequenceClassification, AutoTokenizer, pipeline
     import torch
     import torch_npu
 
@@ -62,11 +66,12 @@
         device=0 if torch.npu.is_available() else -1
     )
 
+    #分析句子情感并输出
     result = nlp_pipeline("This is a test sentence.")
     print(result)
 
 
-如果成功运行并输出下面或类似内容， 则安装成功
+如果成功运行并输出下面内容，则安装成功：
 
 .. code-block:: shell 
 

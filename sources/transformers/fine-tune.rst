@@ -6,7 +6,7 @@
     阅读本篇前，请确保已按照 :doc:`安装指南 <./install>` 准备好昇腾环境及transformers！
 
 大模型微调本质是利用特定领域的数据集对已预训练的大模型进行进一步训练的过程。它旨在优化模型在特定任务上的性能，使模型能够更好地适应和完成特定领域的任务。
-本文通过使用transformers库在选定相关数据集和预训练模型的基础上，设置合适的超参数并对模型进行必要的调整等步骤，实现对模型的微调。
+本文在使用transformers库选定相关数据集和预训练模型的基础上，通过超参数调优完成对模型的微调。
 
 前置准备
 -----------------
@@ -22,14 +22,16 @@
 加载数据集
 <<<<<<<<<<<<<<<<<<<
 
-模型训练需要数据集，这里以 `Yelp Reviews dataset <https://huggingface.co/datasets/Yelp/yelp_review_full>`_ 为例
+模型训练需要使用数据集，这里使用 `Yelp Reviews dataset <https://huggingface.co/datasets/Yelp/yelp_review_full>`_ ：
 
 .. code-block:: python
     :linenos:
 
     from datasets import load_dataset
 
+    # load_dataset 会自动下载数据集并将其保存到本地路径中
     dataset = load_dataset("yelp_review_full")
+    #输出数据集的第100条数据
     dataset["train"][100]
 
 输出如下:
@@ -47,7 +49,11 @@
     in my party needs to avoid illness from low blood sugar. Perhaps I should go back to the racially biased service of Steak n Shake instead!'}
 
 
-数据集加载需要使用AuToTokenizer， 它可以根据规则将文本拆分为标记，并转换为张量作为模型输入，下面用到了Meta-Llama-3-8B-Instruct模型， 具体获取可以转至 `模型获取 <./modeldownload.html>`_，以下是一个示例
+预处理数据集
+<<<<<<<<<<<<<<<<<
+
+预处理数据集需要使用AutoTokenizer，它用来自动获取与模型匹配的分词器，分词器根据规则将文本拆分为标记，并转换为张量作为模型输入，
+下面用到了Meta-Llama-3-8B-Instruct模型，下载模型请转至 `模型获取 <./modeldownload.html>`_，以下是一个示例：
 
 .. code-block:: python
     :linenos:
@@ -55,6 +61,7 @@
     from transformers import AutoTokenizer
 
     tokenizer = AutoTokenizer.from_pretrained("meta-llama/Meta-Llama-3-8B-Instruct")
+    #使用分词器处理文本
     encoded_input = tokenizer("Do not meddle in the affairs of wizards, for they are subtle and quick to anger.")
     print(encoded_input)
 
@@ -65,8 +72,7 @@
     {'input_ids': [128000, 5519, 539, 1812, 91485, 304, 279, 22747, 315, 89263, 11, 369, 814, 527, 27545, 323, 4062, 311, 19788, 13],
      'attention_mask': [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]}
 
-
-接着使用dataset.map方法对数据集进行预处理
+接着使用dataset.map方法对数据集进行预处理：
 
 .. code-block:: python
     :linenos:
@@ -76,7 +82,7 @@
 
     tokenized_datasets = dataset.map(tokenize_function, batched=True)
 
-初次进行预处理需要一定时间，内容如下
+初次进行预处理需要一定时间，内容如下：
 
 .. code-block:: shell
     :linenos:
@@ -86,7 +92,7 @@
     Map: 100%|████████████████████████████████████████████████████████████████████████| 650000/650000 [03:27<00:00, 3139.47 examples/s]
     Map: 100%|██████████████████████████████████████████████████████████████████████████| 50000/50000 [00:15<00:00, 3156.92 examples/s]
 
-训练全部的数据集会耗费更长的时间，根据下面将其划分为一个小的训练集和验证集，提高训练速度
+训练全部的数据集会耗费更长的时间，通常将其划分为较小的训练集和验证集，以提高训练速度：
 
 .. code-block:: python
     :linenos:
@@ -104,6 +110,8 @@
 加载模型
 <<<<<<<<<
 
+使用AutoModelForCausalLM将自动加载模型：
+
 .. code-block:: python
     :linenos:
 
@@ -111,36 +119,49 @@
 
     model = AutoModelForCausalLM.from_pretrained("meta-llama/Meta-Llama-3-8B-Instruct")
 
-训练超参数及评估
+超参数调优
 <<<<<<<<<<<<<<<<<<<<<
 
-TrainingArguments类包含可以调整的所有超参数以及用于激活不同训练选项的标志，这里使用默认训练超参数
+超参数调优用于激活不同训练选项的标志，它定义了关于模型的更高层次的概念，例如模型复杂程度或学习能力，下边使用TrainingArguments类来加载：
 
 .. code-block:: python
     :linenos:
 
-    import numpy as np
+    from transformers import TrainingArguments
+
+    training_args = TrainingArguments(output_dir="test_trainer", eval_strategy="epoch")
+
+模型评估
+<<<<<<<<<<<<<
+
+模型评估用于衡量模型在给定数据集上的表现，包括准确率，完全匹配速率，平均并交集点等，下面是使用方式：
+
+.. code-block:: python
+    :linenos:
+
+    import 
     import sklearn
     import evaluate
-    from transformers import TrainingArguments, Trainer
 
     metric = evaluate.load("accuracy")
 
+    #计算预测的准确性,并将预测传递给compute
     def compute_metrics(eval_pred):
         logits, labels = eval_pred
         predictions = np.argmax(logits, axis=-1)
         return metric.compute(predictions=predictions, references=labels)
 
-    training_args = TrainingArguments(output_dir="test_trainer", eval_strategy="epoch")
 
 Trainer
 <<<<<<<
 
-使用已加载的模型、训练参数、训练和测试数据集以及评估函数创建一个Trainer对象，并调用train()来微调模型
+使用已加载的模型、训练参数、训练和测试数据集以及评估函数创建一个Trainer对象，并调用trainer.train()来微调模型：
 
 .. code-block:: python
     :linenos:
     
+    from transformers import Trainer
+
     trainer = Trainer(
         model=model,
         args=training_args,
@@ -151,10 +172,8 @@ Trainer
 
     trainer.train()
 
-.. figure:: ./images/train.png
-    :align: center
 
-全流程展示
+预训练全流程
 -------------------
 
 .. code-block:: python
@@ -165,7 +184,7 @@ Trainer
     import numpy as np
     import sklearn
     import evaluate
-    from transformers import AutoModelForCausalLM, AutoTokenizer, TrainingArguments, Trainer
+    from transformers import AutoModelForCausalLM, AutoTokenizer, Trainer, TrainingArguments
     from datasets import load_dataset
 
     model_id = "meta-llama/Meta-Llama-3-8B-Instruct"
@@ -211,4 +230,21 @@ Trainer
 
     trainer.train()
 
-至此，便可完成简单的模型微调
+
+训练完成后得到以下结果：
+
+.. code-block:: shell
+    :linenos:
+
+    |█████████████████████████████████| [375/375 06:21, Epoch 3/3]
+
+    =====  =============  ===============  ======
+    Epoch  Training Loss  Validation Loss  Accuracy
+    =====  =============  ===============  ======
+    1	    No log	    1.155628	0.499000
+    2	    No log	    0.994618	0.574000
+    3	    No log	    1.026123	0.590000
+    =====  =============  ===============  ======
+
+    TrainOutput(global_step=375, training_loss=1.0557311197916666, metrics={'train_runtime': 384.55, 'train_samples_per_second': 7.801, 
+    'train_steps_per_second': 0.975, 'total_flos': 789354427392000.0, 'train_loss': 1.0557311197916666, 'epoch': 3.0})
