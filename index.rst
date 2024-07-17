@@ -20,7 +20,13 @@
 
    sources/pytorch/index.rst
    sources/llamafactory/index.rst
+   sources/accelerate/index.rst
    sources/transformers/index.rst
+   sources/onnxruntime/index.rst
+   sources/open_clip/index.rst
+   sources/timm/index.rst
+   sources/Diffusers/index.rst
+   sources/opencv/index.rst
    sources/sd_webui/index.rst
 
 .. warning::
