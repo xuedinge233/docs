@@ -22,6 +22,7 @@
    sources/llamafactory/index.rst
    sources/accelerate/index.rst
    sources/transformers/index.rst
+   sources/onnxruntime/index.rst
 
 .. warning::
 
@@ -82,11 +83,11 @@
                 </div>
                 <div class="flex-grow"></div>
                 <div class="flex space-x-4 text-blue-600">
-                    <a href="#">官方链接</a>
+                    <a href="https://github.com/microsoft/onnxruntime">官方链接</a>
                     <span class="split">|</span>
-                    <a href="#">安装指南</a>
+                    <a href="sources/onnxruntime/install.html">安装指南</a>
                     <span class="split">|</span>
-                    <a href="#">快速上手</a>
+                    <a href="sources/onnxruntime/quick_start.html">快速上手</a>
                 </div>
             </div>
             <!-- Card 4 -->
