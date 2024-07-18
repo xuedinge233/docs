@@ -28,6 +28,7 @@
    sources/timm/index.rst
    sources/Diffusers/index.rst
    sources/opencv/index.rst
+   sources/sd_webui/index.rst
 
 .. warning::
 
@@ -145,9 +146,9 @@
                 <div class="flex space-x-4 text-blue-600">
                     <a href="https://github.com/AUTOMATIC1111/stable-diffusion-webui">官方链接</a>
                     <span class="split">|</span>
-                    <a href="#">安装指南</a>
+                    <a href="sources/sd_webui/install.html">安装指南</a>
                     <span class="split">|</span>
-                    <a href="#">快速上手</a>
+                    <a href="sources/sd_webui/quick_start.html">快速上手</a>
                 </div>
             </div>
             <!-- Card 7 -->
