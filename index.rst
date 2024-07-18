@@ -22,6 +22,7 @@
    sources/llamafactory/index.rst
    sources/accelerate/index.rst
    sources/transformers/index.rst
+   sources/deepspeed/index.rst
    sources/onnxruntime/index.rst
    sources/open_clip/index.rst
    sources/timm/index.rst
