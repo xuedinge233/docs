@@ -1,5 +1,5 @@
 Stable-Diffusion-WebUI
-==================
+============================
 
 .. toctree::
     :maxdepth: 2
