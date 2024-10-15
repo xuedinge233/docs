@@ -3,7 +3,7 @@
 
 本教程面向使用 llama.cpp & 昇腾的开发者，帮助完成昇腾环境下 llama.cpp 的安装。
 
-.. warning::
+.. note::
   目前 llama.cpp 仅支持 Atlas 300T A2 型号设备
 
 llama.cpp 下载安装
@@ -19,8 +19,8 @@ llama.cpp 下载安装
             <div class="row-element-1" id="col-values">
                     <div class="row" id="row-install_type">
                     <div class="mobile-headings">安装方式</div>
-                    <div class="values-element block-3 install-type selected" id="install_type-docker">Docker</div>
-                    <div class="values-element block-3 install-type" id="install_type-pip">pip</div>
+                    <div class="values-element block-3 install-type selected" id="install_type-pip">pip</div>
+                    <div class="values-element block-3 install-type" id="install_type-docker">Docker</div>
                 </div>
             </div>
         </div>
@@ -37,7 +37,7 @@ llama.cpp 下载安装
                 <p>请确保已经根据快速安装昇腾环境指引<a class="reference internal" href="../ascend/quick_install.html"><span class="doc">安装</span></a>了对应的CANN-toolkit版本以及相应的固件和驱动，并应用了CANN-toolkit环境变量。</p>
         </div>
         <div class="admonition warning">
-            <p class="admonition-title">警告</p>
+            <p class="admonition-title">提示</p>
             <p>LLAMA-Factory 支持的 CANN 最低版本为 8.0.rc1。安装 CANN 时，请同时安装 Kernel 算子包。</p>
         </div>
         <h3>Python 环境创建</h3>
@@ -105,4 +105,21 @@ llama.cpp 下载安装
         </section>
     </div>
 
+安装校验
+-----------------
+
+安装完成后，无任何报错信息，即为安装成功，下面为部分回显信息:
+
+.. code-block:: shell 
+    :linenos:
+
+    [ 97%] Built target test-grammar-integration
+    [ 97%] Built target llama-speculative
+    [ 97%] Built target llama-perplexity
+    [ 98%] Linking CXX executable ../../bin/llama-bench
+    [ 98%] Linking CXX executable ../bin/test-json-schema-to-grammar
+    [ 98%] Built target llama-bench
+    [ 98%] Built target test-json-schema-to-grammar
+    [100%] Linking CXX executable ../../bin/llama-server
+    [100%] Built target llama-server
 
