@@ -32,6 +32,7 @@
    sources/lm_evaluation/index.rst
    sources/wenet/index.rst
    sources/whisper_cpp/index.rst
+   sources/llama_cpp/index.rst
 
 .. warning::
 
@@ -261,6 +262,24 @@
                     <a href="sources/whisper_cpp/install.html">安装指南</a>
                     <span class="split">|</span>
                     <a href="sources/whisper_cpp/quick_start.html">快速上手</a>
+                </div>
+            </div>
+            <!-- Card 13 -->
+            <div class="box rounded-lg p-4 flex flex-col items-center">
+                <div class="flex items-center mb-4">
+                    <div class="img w-16 h-16 rounded-md mr-4" style="background-image: url('_static/images/llama_cpp.png')"></div>
+                    <div>
+                        <h2 class="text-lg font-semibold">llama.cpp</h2>
+                        <p class="text-gray-600 desc">由C/C++实现的 Meta LLaMa 架构</p>
+                    </div>
+                </div>
+                <div class="flex-grow"></div>
+                <div class="flex space-x-4 text-blue-600">
+                    <a href="https://github.com/ggerganov/llama.cpp">官方链接</a>
+                    <span class="split">|</span>
+                    <a href="sources/llama_cpp/install.html">安装指南</a>
+                    <span class="split">|</span>
+                    <a href="sources/llama_cpp/quick_start.html">快速上手</a>
                 </div>
             </div>
         </div>
