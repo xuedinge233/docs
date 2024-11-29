@@ -1,10 +1,10 @@
 const package_info = {
-    '8.0.RC3': {
+    '8.0.RC3.beta1': {
         x86_64: {
-            url: 'https://ascend-repo.obs.cn-east-2.myhuaweicloud.com/Milan-ASL/Milan-ASL V100R001C19SPC802/Ascend-cann-toolkit_8.0.RC3.alpha001_linux-x86_64.run'
+            url: 'https://ascend-repo.obs.cn-east-2.myhuaweicloud.com/CANN/CANN%208.0.RC3/Ascend-cann-toolkit_8.0.RC3_linux-x86_64.run',
         },
         aarch64: {
-            url: 'https://ascend-repo.obs.cn-east-2.myhuaweicloud.com/Milan-ASL/Milan-ASL V100R001C19SPC802/Ascend-cann-toolkit_8.0.RC3.alpha001_linux-aarch64.run'
+            url: 'https://ascend-repo.obs.cn-east-2.myhuaweicloud.com/CANN/CANN%208.0.RC3/Ascend-cann-toolkit_8.0.RC3_linux-aarch64.run',
         },
         '910b': {
             driver_version: '23.0.3',
@@ -253,33 +253,17 @@ const package_info = {
 
 
 const docker_images = [
-    'ascendai/cann:7.0.1-310p-ubuntu20.04',
-    'ascendai/cann:7.0.1-310p-ubuntu22.04',
-    'ascendai/cann:7.0.1-310p-openeuler20.03',
-    'ascendai/cann:7.0.1-910-ubuntu20.04',
-    'ascendai/cann:7.0.1-910-ubuntu22.04',
-    'ascendai/cann:7.0.1-910-openeuler20.03',
-    'ascendai/cann:7.0.1-910b-ubuntu20.04',
-    'ascendai/cann:7.0.1-910b-ubuntu22.04',
-    'ascendai/cann:7.0.1-910b-openeuler20.03',
-    'ascendai/cann:8.0.rc1-310p-ubuntu20.04',
-    'ascendai/cann:8.0.rc1-310p-ubuntu22.04',
-    'ascendai/cann:8.0.rc1-310p-openeuler20.03',
-    'ascendai/cann:8.0.rc1-910-ubuntu20.04',
-    'ascendai/cann:8.0.rc1-910-ubuntu22.04',
-    'ascendai/cann:8.0.rc1-910-openeuler20.03',
-    'ascendai/cann:8.0.rc1-910b-ubuntu20.04',
-    'ascendai/cann:8.0.rc1-910b-ubuntu22.04',
-    'ascendai/cann:8.0.rc1-910b-openeuler20.03',
-    'ascendai/cann:8.0.rc2.alpha002-310p-ubuntu20.04',
-    'ascendai/cann:8.0.rc2.alpha002-310p-ubuntu22.04',
-    'ascendai/cann:8.0.rc2.alpha002-310p-openeuler20.03',
-    'ascendai/cann:8.0.rc2.alpha002-910-ubuntu20.04',
-    'ascendai/cann:8.0.rc2.alpha002-910-ubuntu22.04',
-    'ascendai/cann:8.0.rc2.alpha002-910-openeuler20.03',
-    'ascendai/cann:8.0.rc2.alpha002-910b-ubuntu20.04',
-    'ascendai/cann:8.0.rc2.alpha002-910b-ubuntu22.04',
-    'ascendai/cann:8.0.rc2.alpha002-910b-openeuler20.03',
+    'ascendai/cann:7.0.1.beta1-910b-ubuntu22.04-py3.8',
+    'ascendai/cann:7.0.1.beta1-910b-openeuler22.03-py3.8',
+    'ascendai/cann:8.0.rc1.beta1-910b-ubuntu22.04-py3.8',
+    'ascendai/cann:8.0.rc1.beta1-910b-openeuler22.03-py3.8',
+    'ascendai/cann:8.0.rc2.beta1-910b-ubuntu22.04-py3.9',
+    'ascendai/cann:8.0.rc2.beta1-910b-ubuntu22.04-py3.10',
+    'ascendai/cann:8.0.rc2.beta1-910b-openeuler22.03-py3.8',
+    'ascendai/cann:8.0.rc2.beta1-910b-openeuler22.03-py3.9',
+    'ascendai/cann:8.0.rc2.beta1-910b-openeuler22.03-py3.10',
+    'ascendai/cann:8.0.rc3.beta1-910b-ubuntu22.04-py3.10',
+    'ascendai/cann:8.0.rc3.beta1-910b-openeuler22.03-py3.10',
 ];
 
 const pytorch_versions = {
