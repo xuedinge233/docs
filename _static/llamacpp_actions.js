@@ -36,11 +36,11 @@ $(document).ready(function () {
     $.gen_content = function () {
         var options = $.get_options();
         if (options['install_type'] == "docker") {
-            $('#install-llamacpp-pip-section').hide();
+            $('#install-llamacpp-sourceCode-section').hide();
             $('#install-llamacpp-docker-section').show();
-        } else if (options['install_type'] == "pip") {
+        } else if (options['install_type'] == "sourceCode") {
             $('#install-llamacpp-docker-section').hide();
-            $('#install-llamacpp-pip-section').show();
+            $('#install-llamacpp-sourceCode-section').show();
         }
     }
 

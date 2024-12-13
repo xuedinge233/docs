@@ -9,7 +9,7 @@
 llama.cpp 下载安装
 ---------------------------
 
-此处提供 docker 和 pip 两种安装方式，请按需选择:
+此处提供源码安装和 docker 两种安装方式，请按需选择:
 
 .. raw:: html
 
@@ -19,7 +19,7 @@ llama.cpp 下载安装
             <div class="row-element-1" id="col-values">
                     <div class="row" id="row-install_type">
                     <div class="mobile-headings">安装方式</div>
-                    <div class="values-element block-3 install-type selected" id="install_type-pip">pip</div>
+                    <div class="values-element block-3 install-type selected" id="install_type-sourceCode">源码安装</div>
                     <div class="values-element block-3 install-type" id="install_type-docker">Docker</div>
                 </div>
             </div>
@@ -30,7 +30,7 @@ llama.cpp 下载安装
 
 .. raw:: html
 
-    <section id="install-llamacpp-pip-section">
+    <section id="install-llamacpp-sourceCode-section">
         <h2>使用源代码安装</h2>
         <div class="admonition note">
                 <p class="admonition-title">备注</p>
@@ -40,14 +40,6 @@ llama.cpp 下载安装
             <p class="admonition-title">提示</p>
             <p>LLAMA-Factory 支持的 CANN 最低版本为 8.0.rc1。安装 CANN 时，请同时安装 Kernel 算子包。</p>
         </div>
-        <h3>Python 环境创建</h3>
-            <div class="code">
-                <p>创建并激活 Python 环境：</p>
-                <div class="highlight">
-                  <pre>conda create -y -n llamacpp python=3.10
-    conda activate llamacpp</pre>
-                </div>
-            </div>
       
         <h3>获取源代码</h3>
             <div class="code">
@@ -81,7 +73,9 @@ llama.cpp 下载安装
             </div>           
                 <p>构建 docker 镜像：</p>
                 <div class="highlight">
-                <pre>docker build -t llama-cpp-cann -f .devops/llama-cli-cann.Dockerfile .</pre>
+                <pre>git clone https://github.com/ggerganov/llama.cpp
+    cd llama.cpp
+    docker build -t llama-cpp-cann -f .devops/llama-cli-cann.Dockerfile .</pre>
                 </div>
                 <p>找到所有卡的运行信息：</p>
                 <div class="highlight">
