@@ -36,7 +36,7 @@
    sources/sentence_transformers/index.rst
    sources/trl/index.rst
    sources/opencompass/index.rst
-   sources/lm_deploy/index.ret
+   sources/lm_deploy/index.rst
 
 .. warning::
 

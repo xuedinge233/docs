@@ -32,13 +32,13 @@ Drivers，Firmware 和 CANN
 `CANN 驱动程序和固件安装 <https://www.hiascend.com/document/detail/zh/CANNCommunityEdition/800alpha001/softwareinst/instg/instg_0005.html>`_ 
 和 `下载资源 <https://www.hiascend.com/hardware/firmware-drivers/community?product=4&model=26&cann=8.0.RC2.beta1&driver=1.0.25.alpha>`_ 。
 
-另外，**docker/Dockerfile_aarch64_ascend** 没有提供CANN 安装包，用户需要自己从 `昇腾资源下载中心 <https://www.hiascend.com/developer/download/community/result?module=cann&cann=8.0.RC2.beta1&product=4&model=26>`_ 下载CANN(version 8.0.RC2.beta1)软件包。
+另外，**docker/Dockerfile_aarch64_ascend** 没有提供CANN 安装包，用户需要自己从 `昇腾资源下载中心 <https://www.hiascend.com/developer/download/community/result?module=cann&cann=8.0.RC2.beta1&product=4&model=26>`_ 下载 CANN（version 8.0.RC2.beta1）软件包。
 并将 **Ascend-cann-kernels-910b*.run** ，**Ascend-cann-nnal_*.run** 和 **Ascend-cann-toolkit*.run** 放在 lmdeploy 源码根目录下。
 
 构建镜像
 ~~~~~~~~~~~~~~~~~~
 
-请在 lmdeploy源 代码根目录下执行以下镜像构建命令，CANN 相关的安装包也放在此目录下。
+请在 lmdeploy 源代码根目录下执行以下镜像构建命令，CANN 相关的安装包也放在此目录下。
 
 .. code-block:: shell
     :linenos:

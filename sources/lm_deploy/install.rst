@@ -7,7 +7,7 @@ LMDeploy 是一个用于大型语言模型（LLMs）和视觉-语言模型（VLM
 本教程面向使用 lm-deploy & 昇腾的开发者，帮助完成昇腾环境下 lm-deploy 的安装。
 
 
-llama.cpp 下载安装
+lm_deploy 下载安装
 ---------------------------
 
 使用 pip 安装（推荐）
@@ -33,45 +33,6 @@ llama.cpp 下载安装
 
     git clone https://github.com/InternLM/lmdeploy.git
     cd lmdeploy
-    pip install -e .
-
-
-但如果你使用 TurboMind 引擎，请参考以下说明编译源代码。我们强烈推荐使用 `openmmlab/lmdeploy:{tag}` docker 镜像作为编译安装的环境
-
-- 获取 LMDeploy 的 docker 镜像
-
-.. code-block:: shell 
-    :linenos:
-
-    docker pull openmmlab/lmdeploy:latest
-
-- 克隆 LMDeploy 源代码
-
-.. code-block:: shell 
-    :linenos:
-
-    git clone https://github.com/InternLM/lmdeploy.git
-    cd lmdeploy
-
-
-- 以交互模式启动 docker 容器
-
-.. code-block:: shell 
-    :linenos:
-
-    docker run --gpus all --net host --shm-size 16g -v $(pwd):/opt/lmdeploy --name lmdeploy -it openmmlab/lmdeploy:latest bin/bash
-    
-
-- 编译与安装
-
-.. code-block:: shell 
-    :linenos:
-
-    cd /opt/lmdeploy
-    mkdir -p build && cd build
-    bash ../generate.sh make
-    make -j$(nproc) && make install
-    cd ..
     pip install -e .
 
 安装校验
