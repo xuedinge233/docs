@@ -112,7 +112,7 @@ Python   3.8, 3.9, 3.10
                     </div>
                     <div class="highlight-default notranslate">
                         <div class="highlight">
-                            <pre>sudo groupadd -g HwHiAiUser<br>sudo useradd -g HwHiAiUser -d /home/HwHiAiUser -m HwHiAiUser -s /bin/bash<br>sudo usermod -aG HwHiAiUser $USER</pre>
+                            <pre>sudo groupadd HwHiAiUser<br>sudo useradd -g HwHiAiUser -d /home/HwHiAiUser -m HwHiAiUser -s /bin/bash<br>sudo usermod -aG HwHiAiUser $USER</pre>
                         </div>
                     </div>
                     <p><b>2.1.3 下载并安装</b></p>
@@ -159,7 +159,7 @@ Python   3.8, 3.9, 3.10
                         <p><b>2.3.1 安装python依赖</b></p>
                         <div class="highlight-default notranslate">
                             <div class="highlight">
-                                <pre>pip3 install -i https://pypi.tuna.tsinghua.edu.cn/simple attrs numpy decorator sympy cffi pyyaml pathlib2 psutil protobuf scipy requests absl-py wheel typing_extensions</pre>
+                                <pre>pip3 install -i https://pypi.tuna.tsinghua.edu.cn/simple attrs numpy==1.24.0 decorator sympy cffi pyyaml pathlib2 psutil protobuf scipy requests absl-py wheel typing_extensions</pre>
                             </div>
                         </div>
                         <p><b>2.3.2 下载并安装</b></p>
@@ -174,8 +174,14 @@ Python   3.8, 3.9, 3.10
                                 <pre>Ascend-cann-toolkit install success.</pre>
                             </div>
                         </div>
+                        <p><b>2.3.3 设置环境变量</b></p>
+                        <div class="highlight-default notranslate">
+                            <div class="highlight">
+                                <pre>source /usr/local/Ascend/ascend-toolkit/set_env.sh</pre>
+                            </div>
+                        </div>
                         <div id="install_kernel_section">
-                            <p><b>2.3.3 安装算子包</b></p>
+                            <p><b>2.3.4 安装算子包</b></p>
                             <div class="highlight-default notranslate">
                                 <div class="highlight">
                                     <pre></pre>
@@ -186,12 +192,6 @@ Python   3.8, 3.9, 3.10
                         <div class="highlight-default notranslate">
                             <div class="highlight">
                                 <pre>Ascend-cann-kernels install success.</pre>
-                            </div>
-                        </div>
-                        <p><b>2.3.4 设置环境变量</b></p>
-                        <div class="highlight-default notranslate">
-                            <div class="highlight">
-                                <pre>echo "source ~/Ascend/ascend-toolkit/set_env.sh" >> ~/.bashrc<br>source ~/.bashrc</pre>
                             </div>
                         </div>
                 </section>
