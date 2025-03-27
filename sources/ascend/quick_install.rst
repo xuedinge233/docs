@@ -32,7 +32,7 @@
 软件     版本
 ======== ========================================
 操作系统  openEuler20.03/22.03, Ubuntu 20.04/22.04
-Python   3.8, 3.9, 3.10
+Python   3.7, 3.8, 3.9, 3.10, 3.11.4
 ======== ========================================
 
 
@@ -78,8 +78,8 @@ Python   3.8, 3.9, 3.10
                 </div>
                 <div class="row" id="row-npu">
                     <div class="mobile-headings">NPU型号</div>
-                    <div class="values-element block-2 install-npu selected" id="npu-910b">Atlas 800T A2 训练卡</div>
-                    <div class="values-element block-2 install-npu" id="npu-310p">Atlas 300I Pro 推理卡</div>
+                    <div class="values-element block-2 install-npu selected" id="npu-910b">Atlas 300T A2</div>
+                    <div class="values-element block-2 install-npu" id="npu-310p">Atlas 300I Duo</div>
                 </div>
                 <div class="row" id="row-ascend_version">
                     <div class="mobile-headings">昇腾套件版本</div>
@@ -97,12 +97,12 @@ Python   3.8, 3.9, 3.10
                     <p><b>2.1.1 安装依赖</b></p>
                     <div class="highlight-default notranslate" id="install-dependencies-ubuntu">
                         <div class="highlight">
-                            <pre>sudo apt-get install -y gcc g++ make cmake zlib1g zlib1g-dev openssl libsqlite3-dev libssl-dev libffi-dev unzip pciutils net-tools libblas-dev gfortran libblas3 python3-dev</pre>
+                            <pre>sudo apt-get install -y gcc make net-tools python3 python3-dev python3-pip</pre>
                         </div>
                     </div>
                     <div class="highlight-default notranslate" id="install-dependencies-openeuler">
                         <div class="highlight">
-                            <pre>sudo yum install -y gcc gcc-c++ make cmake unzip zlib-devel libffi-devel openssl-devel pciutils net-tools sqlite-devel lapack-devel gcc-gfortran python3-devel</pre>
+                            <pre>sudo yum install -y gcc make net-tools python3 python3-devel python3-pip</pre>
                         </div>
                     </div>
                     <p><b>2.1.2 创建驱动运行用户</b></p>
@@ -159,7 +159,7 @@ Python   3.8, 3.9, 3.10
                         <p><b>2.3.1 安装python依赖</b></p>
                         <div class="highlight-default notranslate">
                             <div class="highlight">
-                                <pre>pip3 install -i https://pypi.tuna.tsinghua.edu.cn/simple attrs numpy==1.24.0 decorator sympy cffi pyyaml pathlib2 psutil protobuf scipy requests absl-py wheel typing_extensions</pre>
+                                <pre>pip3 install -i https://pypi.tuna.tsinghua.edu.cn/simple attrs cython numpy==1.24.0 decorator sympy cffi pyyaml pathlib2 psutil protobuf==3.20 scipy requests absl-py</pre>
                             </div>
                         </div>
                         <p><b>2.3.2 下载并安装</b></p>
@@ -211,22 +211,21 @@ Python   3.8, 3.9, 3.10
     </div>
 
 
-3. 卸载
+1. 卸载
 ----------
-**卸载驱动**
-
+**卸载CANN-toolkit**
 .. code-block:: bash
 
-    sudo /usr/local/Ascend/firmware/script/uninstall.sh
+    ~/Ascend/ascend-toolkit/<cann_version>/{arch}-linux/script/uninstall.sh
 
 **卸载固件**
 
 .. code-block:: bash
 
-    sudo /usr/local/Ascend/driver/script/uninstall.sh
+    sudo /usr/local/Ascend/firmware/script/uninstall.sh
 
-**卸载CANN-toolkit**
+**卸载驱动**
 
 .. code-block:: bash
 
-    ~/Ascend/ascend-toolkit/<cann_version>/{arch}-linux/script/uninstall.sh
+    sudo /usr/local/Ascend/driver/script/uninstall.sh
