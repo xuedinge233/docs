@@ -182,6 +182,10 @@ $(document).ready(function () {
         var cann_url = package_info[options['cann']][options['arch']].url;
         var kernel_url = package_info[options['cann']][options['npu']].kernel_url;
 
+        if (kernel_url == undefined) {
+            kernel_url = package_info[options['cann']][options['npu']][options['arch']].kernel_url;
+        }
+
         var parts = driver_url.split("/");
         var driver_name = parts[parts.length - 1];
         parts = firmware_url.split("/");
