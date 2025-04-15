@@ -1,33 +1,103 @@
 const package_info = {
-    '8.0.RC3.beta1': {
+    '8.1.RC1': {
         x86_64: {
-            url: 'https://ascend-repo.obs.cn-east-2.myhuaweicloud.com/CANN/CANN%208.0.RC3/Ascend-cann-toolkit_8.0.RC3_linux-x86_64.run',
+            url: 'https://ascend-repo.obs.cn-east-2.myhuaweicloud.com/Milan-ASL/Milan-ASL V100R001C21B800TP034/Ascend-cann-toolkit_8.1.RC1.alpha001_linux-x86_64.run',
         },
         aarch64: {
-            url: 'https://ascend-repo.obs.cn-east-2.myhuaweicloud.com/CANN/CANN%208.0.RC3/Ascend-cann-toolkit_8.0.RC3_linux-aarch64.run',
+            url: 'https://ascend-repo.obs.cn-east-2.myhuaweicloud.com/Milan-ASL/Milan-ASL V100R001C21B800TP034/Ascend-cann-toolkit_8.1.RC1.alpha001_linux-aarch64.run',
         },
         '910b': {
             driver_version: '24.1.rc2',
             firmware_version: '7.3.0.1.231',
             firmware_url: 'https://ascend-repo.obs.cn-east-2.myhuaweicloud.com/Ascend HDK/Ascend HDK 24.1.RC2/Ascend-hdk-910b-npu-firmware_7.3.0.1.231.run',
-            kernel_url: 'https://ascend-repo.obs.cn-east-2.myhuaweicloud.com/CANN/CANN 8.0.RC3/Ascend-cann-kernels-910b_8.0.RC3_linux-aarch64.run',
             x86_64: {
                 driver_url: 'https://ascend-repo.obs.cn-east-2.myhuaweicloud.com/Ascend HDK/Ascend HDK 24.1.RC2/Ascend-hdk-910b-npu-driver_24.1.rc2_linux-x86_64.run',
+                kernel_url: 'https://ascend-repo.obs.cn-east-2.myhuaweicloud.com/Milan-ASL/Milan-ASL V100R001C21B800TP034/Ascend-cann-kernels-910b_8.1.RC1.alpha001_linux-x86_64.run',
             },
             aarch64: {
                 driver_url: 'https://ascend-repo.obs.cn-east-2.myhuaweicloud.com/Ascend HDK/Ascend HDK 24.1.RC2/Ascend-hdk-910b-npu-driver_24.1.rc2_linux-aarch64.run',
+                kernel_url: 'https://ascend-repo.obs.cn-east-2.myhuaweicloud.com/Milan-ASL/Milan-ASL V100R001C21B800TP034/Ascend-cann-kernels-910b_8.1.RC1.alpha001_linux-aarch64.run',
             }
         },
         '310p': {
             driver_version: '24.1.rc2',
             firmware_version: '7.3.0.1.231',
-            firmware_url: 'https://ascend-repo.obs.cn-east-2.myhuaweicloud.com/Ascend HDK/Ascend HDK 24.1.RC2/Ascend-hdk-310p-npu-firmware_7.3.0.1.231.run?response-content-type=application/octet-stream',
-            kernel_url: 'https://ascend-repo.obs.cn-east-2.myhuaweicloud.com/CANN/CANN 8.0.RC3/Ascend-cann-kernels-310p_8.0.RC3_linux-aarch64.run',
+            firmware_url: 'https://ascend-repo.obs.cn-east-2.myhuaweicloud.com/Ascend HDK/Ascend HDK 24.1.RC2/Ascend-hdk-310p-npu-firmware_7.3.0.1.231.run',
             x86_64: {
-                driver_url: 'https://ascend-repo.obs.cn-east-2.myhuaweicloud.com/Ascend HDK/Ascend HDK 24.1.RC2/Ascend-hdk-310p-npu-driver_24.1.rc2_linux-x86-64.run?response-content-type=application/octet-stream',
+                driver_url: 'https://ascend-repo.obs.cn-east-2.myhuaweicloud.com/Ascend HDK/Ascend HDK 24.1.RC2/Ascend-hdk-310p-npu-driver_24.1.rc2_linux-x86-64.run',
+                kernel_url: 'https://ascend-repo.obs.cn-east-2.myhuaweicloud.com/Milan-ASL/Milan-ASL V100R001C21B800TP034/Ascend-cann-kernels-310p_8.1.RC1.alpha001_linux-x86_64.run',
             },
             aarch64: {
-                driver_url: 'https://ascend-repo.obs.cn-east-2.myhuaweicloud.com/Ascend HDK/Ascend HDK 24.1.RC2/Ascend-hdk-310p-npu-driver_24.1.rc2_linux-aarch64.run?response-content-type=application/octet-stream',
+                driver_url: 'https://ascend-repo.obs.cn-east-2.myhuaweicloud.com/Ascend HDK/Ascend HDK 24.1.RC2/Ascend-hdk-310p-npu-driver_24.1.rc2_linux-aarch64.run',
+                kernel_url: 'https://ascend-repo.obs.cn-east-2.myhuaweicloud.com/Milan-ASL/Milan-ASL V100R001C21B800TP034/Ascend-cann-kernels-310p_8.1.RC1.alpha001_linux-aarch64.run',
+            }
+        }
+    },
+    '8.0.0': {
+        x86_64: {
+            url: 'https://ascend-repo.obs.cn-east-2.myhuaweicloud.com/CANN/CANN 8.0.0/Ascend-cann-toolkit_8.0.0_linux-x86_64.run',
+        },
+        aarch64: {
+            url: 'https://ascend-repo.obs.cn-east-2.myhuaweicloud.com/CANN/CANN 8.0.0/Ascend-cann-toolkit_8.0.0_linux-aarch64.run',
+        },
+        '910b': {
+            driver_version: '24.1.rc2',
+            firmware_version: '7.3.0.1.231',
+            firmware_url: 'https://ascend-repo.obs.cn-east-2.myhuaweicloud.com/Ascend HDK/Ascend HDK 24.1.RC2/Ascend-hdk-910b-npu-firmware_7.3.0.1.231.run',
+            x86_64: {
+                driver_url: 'https://ascend-repo.obs.cn-east-2.myhuaweicloud.com/Ascend HDK/Ascend HDK 24.1.RC2/Ascend-hdk-910b-npu-driver_24.1.rc2_linux-x86_64.run',
+                kernel_url: 'https://ascend-repo.obs.cn-east-2.myhuaweicloud.com/CANN/CANN 8.0.0/Ascend-cann-kernels-910b_8.0.0_linux-x86_64.run',
+            },
+            aarch64: {
+                driver_url: 'https://ascend-repo.obs.cn-east-2.myhuaweicloud.com/Ascend HDK/Ascend HDK 24.1.RC2/Ascend-hdk-910b-npu-driver_24.1.rc2_linux-aarch64.run',
+                kernel_url: 'https://ascend-repo.obs.cn-east-2.myhuaweicloud.com/CANN/CANN 8.0.0/Ascend-cann-kernels-910b_8.0.0_linux-aarch64.run',
+            }
+        },
+        '310p': {
+            driver_version: '24.1.rc2',
+            firmware_version: '7.3.0.1.231',
+            firmware_url: 'https://ascend-repo.obs.cn-east-2.myhuaweicloud.com/Ascend HDK/Ascend HDK 24.1.RC2/Ascend-hdk-310p-npu-firmware_7.3.0.1.231.run',
+            x86_64: {
+                driver_url: 'https://ascend-repo.obs.cn-east-2.myhuaweicloud.com/Ascend HDK/Ascend HDK 24.1.RC2/Ascend-hdk-310p-npu-driver_24.1.rc2_linux-x86-64.run',
+                kernel_url: 'https://ascend-repo.obs.cn-east-2.myhuaweicloud.com/CANN/CANN 8.0.0/Ascend-cann-kernels-310p_8.0.0_linux-x86_64.run',
+            },
+            aarch64: {
+                driver_url: 'https://ascend-repo.obs.cn-east-2.myhuaweicloud.com/Ascend HDK/Ascend HDK 24.1.RC2/Ascend-hdk-310p-npu-driver_24.1.rc2_linux-aarch64.run',
+                kernel_url: 'https://ascend-repo.obs.cn-east-2.myhuaweicloud.com/CANN/CANN 8.0.0/Ascend-cann-kernels-310p_8.0.0_linux-aarch64.run',
+            }
+        }
+    },
+    '8.0.RC3': {
+        x86_64: {
+            url: 'https://ascend-repo.obs.cn-east-2.myhuaweicloud.com/CANN/CANN 8.0.RC3/Ascend-cann-toolkit_8.0.RC3_linux-x86_64.run',
+        },
+        aarch64: {
+            url: 'https://ascend-repo.obs.cn-east-2.myhuaweicloud.com/CANN/CANN 8.0.RC3/Ascend-cann-toolkit_8.0.RC3_linux-aarch64.run',
+        },
+        '910b': {
+            driver_version: '24.1.rc2',
+            firmware_version: '7.3.0.1.231',
+            firmware_url: 'https://ascend-repo.obs.cn-east-2.myhuaweicloud.com/Ascend HDK/Ascend HDK 24.1.RC2/Ascend-hdk-910b-npu-firmware_7.3.0.1.231.run',
+            x86_64: {
+                driver_url: 'https://ascend-repo.obs.cn-east-2.myhuaweicloud.com/Ascend HDK/Ascend HDK 24.1.RC2/Ascend-hdk-910b-npu-driver_24.1.rc2_linux-x86_64.run',
+                kernel_url: 'https://ascend-repo.obs.cn-east-2.myhuaweicloud.com/CANN/CANN 8.0.RC3/Ascend-cann-kernels-910b_8.0.RC3_linux-x86_64.run',
+            },
+            aarch64: {
+                driver_url: 'https://ascend-repo.obs.cn-east-2.myhuaweicloud.com/Ascend HDK/Ascend HDK 24.1.RC2/Ascend-hdk-910b-npu-driver_24.1.rc2_linux-aarch64.run',
+                kernel_url: 'https://ascend-repo.obs.cn-east-2.myhuaweicloud.com/CANN/CANN 8.0.RC3/Ascend-cann-kernels-910b_8.0.RC3_linux-aarch64.run',
+            }
+        },
+        '310p': {
+            driver_version: '24.1.rc2',
+            firmware_version: '7.3.0.1.231',
+            firmware_url: 'https://ascend-repo.obs.cn-east-2.myhuaweicloud.com/Ascend HDK/Ascend HDK 24.1.RC2/Ascend-hdk-310p-npu-firmware_7.3.0.1.231.run',
+            x86_64: {
+                driver_url: 'https://ascend-repo.obs.cn-east-2.myhuaweicloud.com/Ascend HDK/Ascend HDK 24.1.RC2/Ascend-hdk-310p-npu-driver_24.1.rc2_linux-x86-64.run',
+                kernel_url: 'https://ascend-repo.obs.cn-east-2.myhuaweicloud.com/CANN/CANN 8.0.RC3/Ascend-cann-kernels-310p_8.0.RC3_linux-x86_64.run',
+            },
+            aarch64: {
+                driver_url: 'https://ascend-repo.obs.cn-east-2.myhuaweicloud.com/Ascend HDK/Ascend HDK 24.1.RC2/Ascend-hdk-310p-npu-driver_24.1.rc2_linux-aarch64.run',
+                kernel_url: 'https://ascend-repo.obs.cn-east-2.myhuaweicloud.com/CANN/CANN 8.0.RC3/Ascend-cann-kernels-310p_8.0.RC3_linux-aarch64.run',
             }
         }
     },
@@ -264,6 +334,8 @@ const docker_images = [
     'ascendai/cann:8.0.rc2.beta1-910b-openeuler22.03-py3.10',
     'ascendai/cann:8.0.rc3.beta1-910b-ubuntu22.04-py3.10',
     'ascendai/cann:8.0.rc3.beta1-910b-openeuler22.03-py3.10',
+    'ascendai/cann:8.0.0-910b-openeuler22.03-py3.10',
+    'ascendai/cann:8.0.0-910b-ubuntu22.04-py3.10',
 
     'ascendai/cann:7.0.1-310p-openeuler22.03-py3.8',
     'ascendai/cann:7.0.1-310p-ubuntu22.04-py3.8',
@@ -271,23 +343,30 @@ const docker_images = [
     'ascendai/cann:8.0.rc1-310p-openeuler22.03-py3.9',
 ];
 
+// Only show 3 latest versions
 const pytorch_versions = {
+    '2.4.0': {
+        torch_npu: '2.4.0.post2',
+        npu_branch: 'v2.4.0-6.0.0',
+        cann: 'CANN 8.0.0',
+        docker: 'ascendai/pytorch:2.4.0'
+    },
     '2.3.1': {
-        torch_npu: '2.3.1',
-        npu_branch: 'v2.3.1-6.0.rc2',
-        cann: 'CANN 8.0.RC2',
+        torch_npu: '2.3.1.post4',
+        npu_branch: 'v2.3.1-6.0.0',
+        cann: 'CANN 8.0.0',
         docker: 'ascendai/pytorch:2.3.1'
     },
     '2.2.0': {
-        torch_npu: '2.2.0',
-        npu_branch: 'v2.2.0-6.0.rc1',
-        cann: 'CANN 8.0.RC1',
+        torch_npu: '2.2.0.post2',
+        npu_branch: 'v2.2.0-6.0.rc2',
+        cann: 'CANN 8.0.RC2',
         docker: 'ascendai/pytorch:2.2.0'
     },
     '2.1.0': {
-        torch_npu: '2.1.0.post3',
-        npu_branch: 'v2.1.0-6.0.rc1',
-        cann: 'CANN 8.0.RC1',
+        torch_npu: '2.1.0.post10',
+        npu_branch: 'v2.1.0-6.0.0',
+        cann: 'CANN 8.0.0',
         docker: 'ascendai/pytorch:2.1.0'
     }
 }
