@@ -14,7 +14,6 @@
 # import sys
 # sys.path.insert(0, os.path.abspath('.'))
 
-
 # -- Project information -----------------------------------------------------
 
 project = '昇腾开源'
@@ -37,6 +36,9 @@ extensions = [
     'sphinx_copybutton'
 ]
 
+# 模板路径设置
+templates_path = ['_templates']
+autosummary_generate = True
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
 
@@ -69,3 +71,96 @@ def setup(app):
     app.add_css_file('custom.css')
     app.add_js_file('package_info.js')
     app.add_js_file('statistics.js')
+
+
+import os, re, importlib.util
+from jinja2 import Environment, FileSystemLoader
+
+def deal_before_example(before_example):
+     # 需要加黑的字段
+    fields = ["功能描述", "参数说明",  "参数解释", "接口原型", "约束说明", "输出说明"]
+
+    # 正则匹配这些字段
+    pattern = re.compile(r'(' + '|'.join(fields) + r')')
+
+    # 匹配之后替换
+    result = pattern.sub(r'**\1**', before_example)
+    params_list = [param.strip() for param in result.split('\n') if param.strip()]
+
+    return params_list
+
+def generate_api_doc():
+    # 查找 _op_plugin_docs 中所有的 add_torch_npu_docstr 调用
+    try:
+        # 获取插件文档路径
+        torch_npu_path = os.path.dirname(importlib.util.find_spec('torch_npu').origin)
+        plugin_docs_path = os.path.join(torch_npu_path, '_op_plugin_docs.py')
+    except AttributeError:
+        raise ImportError("_op_plugin_docs module not found")
+
+    with open(plugin_docs_path, 'r') as file:
+        plugin_docs_code = file.read()
+
+    # 查找所有add_torch_npu_docstr 函数调用
+    pattern = re.compile(r'add_torch_npu_docstr\(\s*"(.*?)"\s*,\s*"""(.*?)"""', re.DOTALL)
+    matches = pattern.findall(plugin_docs_code)
+
+    functions_data = []
+
+    for func, docstring in matches:
+        # 匹配 "调用示例" 或 "示例" 部分的位置
+
+        example_pattern = re.compile(r'\s*(调用示例|示例)\s*[:：]?\s*\n(.*)', re.DOTALL)
+        example_match = example_pattern.search(docstring)
+
+        before_example = docstring.split(example_match.group(0))[0].strip()  if example_match else docstring
+        params_list =  deal_before_example(before_example)
+
+        formatted_example = ''
+        if example_match:
+            # 截取示例代码部分
+            after_example = example_match.group(2).strip()
+            # 对每一行进行检查，如果没有以 '>>>' 开头，添加 '>>> ' 前缀
+            formatted_example_lines = []
+            example_lines = after_example.split('\n')
+            for line in example_lines:
+                # 如果行以多个 '>' 开头，但没有 '>>> '（即没有空格），删除所有多余的 '>' 并添加 '>>> ' 
+                if re.match(r'^>+', line.strip()) and not line.lstrip().startswith('>>> '):
+                    formatted_example_lines.append('>>> ' + line.lstrip('>').strip())
+                elif not line.strip().startswith('>>>'):
+                    # 如果没有 '>>> '，则添加 '>>> '
+                    formatted_example_lines.append('>>> ' + line.strip())
+                else:
+                    # 如果已经以 '>>> ' 开头，保持原样
+                    formatted_example_lines.append(line.strip())
+
+            # 将处理后的行重新组合成一个完整的示例
+            formatted_example = '\n'.join(formatted_example_lines)
+
+        functions_data.append({
+            'function': func,
+            'params':  params_list,
+            'example': formatted_example
+            })
+
+
+ # 配置模板环境
+    template_dir = os.path.join(os.path.dirname(__file__), '_templates/pytorch')
+    env = Environment(
+        loader=FileSystemLoader(template_dir),
+        autoescape=False,
+        trim_blocks=True
+    )
+
+    # 渲染模板
+    template = env.get_template('api_doc.rst.jinja')
+    rendered_content = template.render(npu_functions=functions_data)
+
+    # 将渲染后的内容写入 .rst 文件
+    # 拼接成目标文件路径
+    rst_filename = os.path.join(os.getcwd(), 'sources', 'pytorch', 'api_doc.rst') 
+    with open(rst_filename, 'w', encoding='utf-8') as f:
+        f.write(rendered_content)
+ 
+# 在 Sphinx 构建之前调用该函数生成 API 文档
+generate_api_doc()
